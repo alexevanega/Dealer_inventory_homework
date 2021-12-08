@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>This is the Sign Up Page</h1>
+
+<form action="" method='POST'>
+    {{ form.hidden_tag() }}
+    <div class="form_group">
+        <fieldset>
+            {{form.first_name.label}}
+            {{form.first_name(class='form-control',placeholder='First Name')}}
+        </fieldset><fieldset>
+            {{form.last_name.label}}
+            {{form.last_name(class='form-control',placeholder='Last Name')}}
+        </fieldset>
+        <fieldset>
+            {{form.email.label}}
+            {{form.email(class='form-control',placeholder='Email')}}
+        </fieldset>
+        <fieldset>
+            {{form.password.label}}
+            {{form.password(class='form-control',placeholder='Password')}}
+        </fieldset>
+        <fieldset>
+            {{form.confirm_password.label}}
+            {{form.confirm_password(class='form-control',placeholder='Confirm Password')}}
+        </fieldset>
+
+        <br>
+
+        {{form.submit(class='btn btn-primary')}}
+    </div>
+
+</form>
+
+{% endblock content %}
