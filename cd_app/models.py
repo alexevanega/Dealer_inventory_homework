@@ -1,6 +1,9 @@
-from cd_app import db
 from enum import unique
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash
 
+
+db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,4 +16,4 @@ class User(db.Model):
         self.first_name = first
         self.last_name = last
         self.email = email
-        self.password = password
+        self.password = generate_password_hash(password)

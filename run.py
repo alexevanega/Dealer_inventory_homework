@@ -1,5 +1,5 @@
-from cd_app import app,db
-from cd_app.models import User
+from cd_app import app
+from cd_app.models import db, User
 
 @app.shell_context_processor
 def shell_context():

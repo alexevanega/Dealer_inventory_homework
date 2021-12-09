@@ -1,16 +1,12 @@
-from flask import Blueprint, render_template, request
-from wtforms.fields.simple import PasswordField
-from flask import redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for
+from werkzeug.security import check_password_hash
+from flask_login import login_user, logout_user,login_required,current_user
 
-from cd_app.routes import homePage
-
+from cd_app.models import db
 from .forms import userForm
-from ..models import User
-
-from cd_app import db
+from cd_app.models import User
 
 auth = Blueprint('authenticate',__name__,template_folder='auth_templates')
-
 
 @auth.route('/login')
 def logIn():
@@ -26,11 +22,11 @@ def signUp():
             email = auth_form.email.data
             password = auth_form.password.data
 
-            user = User(first,last,email,password)
+            new_user = User(first,last,email,password)
 
-            db.session.add(user)
+            db.session.add(new_user)
             db.session.commit()
             
-            return redirect({{ url_for(homePage) }})
+            return redirect(url_for('homePage'))
             
     return render_template('sign_up.html', form=auth_form)

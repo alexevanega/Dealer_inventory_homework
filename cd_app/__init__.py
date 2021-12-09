@@ -2,22 +2,24 @@ from flask import Flask
 from config import Config
 
 from .inventory.routes import inv
-
 from .authenticate.routes import auth
 
-from flask_sqlalchemy import SQLAlchemy
+from .models import db
 from flask_migrate import Migrate
+from flask_login import LoginManager
 
 app = Flask(__name__)
-db = SQLAlchemy()
-migrate = Migrate(app,db)
+# login = LoginManager()
+
+app.register_blueprint(inv)
+app.register_blueprint(auth)
 
 app.config.from_object(Config)
 
 db.init_app(app)
+# login.init_app(app)
 
-app.register_blueprint(inv)
-app.register_blueprint(auth)
+migrate = Migrate(app,db)
 
 from cd_app import routes
 from cd_app import models
