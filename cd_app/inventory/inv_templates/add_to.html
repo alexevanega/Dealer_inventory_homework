@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> This is the Add to Inventory Page </h1>
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset>
+            {{ form.image.label }}
+            {{ form.image(class='form-control', placeholder='Image Url') }}
+        </fieldset>
+        <fieldset>
+            {{ form.vin_num.label }}
+            {{ form.vin_num(class='form-control', placeholder='Vin Number') }}
+        </fieldset>
+        <fieldset>
+            {{ form.year.label }}
+            {{ form.year(class='form-control', placeholder='Vehicle Year') }}
+        </fieldset>
+        <fieldset>
+            {{ form.make.label }}
+            {{ form.make(class='form-control', placeholder='Vehicle Make') }}
+        </fieldset><fieldset>
+            {{ form.model.label }}
+            {{ form.model(class='form-control', placeholder='Vehicle Model') }}
+        </fieldset><fieldset>
+            {{ form.description.label }}
+            {{ form.description(class='form-control', placeholder='Write a brief description of vehicle') }}
+        </fieldset>
+     
+</form>
+
+{% endblock content %}
