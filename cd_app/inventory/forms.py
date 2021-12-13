@@ -1,9 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms import validators
+from wtforms import StringField, SubmitField,validators
 from wtforms.validators import DataRequired
 
-class addToInventory():
+class addToInventory(FlaskForm):
     image = StringField('Image URL', validators=[DataRequired()])
     vin_num = StringField('Vin Number', validators=[DataRequired()])
     year = StringField('Year', validators=[DataRequired()])
@@ -11,3 +10,4 @@ class addToInventory():
     model = StringField('Model', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField()
+

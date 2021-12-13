@@ -22,12 +22,18 @@
         <fieldset>
             {{ form.make.label }}
             {{ form.make(class='form-control', placeholder='Vehicle Make') }}
-        </fieldset><fieldset>
+        </fieldset>
+        <fieldset>
             {{ form.model.label }}
             {{ form.model(class='form-control', placeholder='Vehicle Model') }}
-        </fieldset><fieldset>
+        </fieldset>
+        <fieldset>
             {{ form.description.label }}
             {{ form.description(class='form-control', placeholder='Write a brief description of vehicle') }}
+        </fieldset>
+        <br>
+        <fieldset>
+            {{form.submit(class='btn btn-primary')}}
         </fieldset>
      
 </form>

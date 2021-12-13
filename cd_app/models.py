@@ -28,7 +28,7 @@ class Inventory(db.Model):
     model = db.Column(db.String(75), nullable=False, unique=False)
     description = db.Column(db.String(300))
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow()) 
-    user_id = db.Column(db.Integer, db.ForeignKey('user_id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __init__(self, image, vin_num, year, make, model, description,user_id):
         self.image = image
@@ -38,4 +38,3 @@ class Inventory(db.Model):
         self.model = model
         self.description = description
         self.user_id = user_id
-

@@ -1,37 +1,36 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 {% block content %}
 
 <h1 class="text-decoration-underline">Dealership Inventory Table</h1>
 
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Year</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>YYYY</td>
-        <td>Car1_Make</td>
-        <td>Car1_Model</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>YYYY</td>
-        <td>Car2_Make</td>
-        <td>Car2_Model</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>YYYY</td>
-        <td>Car3_Make</td>
-        <td>Car3_Model</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Image</th>
+      <th scope="col">Vin#</th>
+      <th scope="col">Year</th>
+      <th scope="col">Make</th>
+      <th scope="col">Model</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date Entered</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for items in inventory %}
+    <tr>
+      <th scope="row">{{items.id}}</th>
+      <td>{{items.image}}</td>
+      <td>{{items.vin_num}}</td>
+      <td>{{items.year}}</td>
+      <td>{{items.make}}</td>
+      <td>{{items.model}}</td>
+      <td>{{items.description}}</td>
+      <td>{{items.date_added}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock content %}

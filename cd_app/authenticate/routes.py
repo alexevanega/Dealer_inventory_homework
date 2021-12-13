@@ -21,7 +21,7 @@ def logIn():
         user = User.query.filter_by(email=email).first()
 
         if user is None or not check_password_hash(user.password, password):
-            return redirect(url_for('auth.logIn'))
+            return redirect(url_for('authenticate.logIn'))
 
         login_user(user,remember=remember_me)
         print(current_user)

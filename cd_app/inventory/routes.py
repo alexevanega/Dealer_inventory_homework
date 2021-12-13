@@ -12,7 +12,9 @@ from cd_app.models import db
 @inv.route('/inventory')
 def inventory_page():
     inventory = Inventory.query.all()
-    return render_template('data_list.html')
+    if inventory == None:
+        return render_template('add_to.html')
+    return render_template('data_list.html', title='Inventory Listing')
 
 @inv.route('/inventory/add_to_inventory', methods=['GET','POST'])
 def addInv():
@@ -32,4 +34,4 @@ def addInv():
             db.session.commit()
 
             return redirect(url_for('homePage'))
-    return render_template('add_to.html')
+    return render_template('add_to.html',form=add_form, title='Add To Inventory')
