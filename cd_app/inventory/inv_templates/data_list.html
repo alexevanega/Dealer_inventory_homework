@@ -20,8 +20,8 @@
   <tbody>
     {% for items in inventory %}
     <tr>
-      <th scope="row">{{items.id}}</th>
-      <td>{{items.image}}</td>
+      <td>{{items.id}}</td>
+      <td><img src='{{items.image}}' class="img-fluid img-thumbnail w-50" alt="..."></td>
       <td>{{items.vin_num}}</td>
       <td>{{items.year}}</td>
       <td>{{items.make}}</td>
