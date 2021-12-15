@@ -16,7 +16,7 @@ def inventory_page():
     inventory = Inventory.query.all()
     if inventory == None:
         return render_template('add_to.html')
-    return render_template('data_list.html', inventory=inventory, title='Inventory Listing')
+    return render_template('data_list.html', inventory=inventory, current=current_user.id, title='Inventory Listing')
 
 @inv.route('/inventory/chucknorris')
 def chuckJokes():

@@ -19,6 +19,7 @@
   </thead>
   <tbody>
     {% for items in inventory %}
+    {% if items.user_id == current %}
     <tr>
       <td>{{items.id}}</td>
       <td><img src='{{items.image}}' class="img-fluid img-thumbnail w-50" alt="..."></td>
@@ -29,6 +30,7 @@
       <td>{{items.description}}</td>
       <td>{{items.date_added}}</td>
     </tr>
+    {% endif %}
     {% endfor %}
   </tbody>
 </table>
