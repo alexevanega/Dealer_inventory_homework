@@ -2,9 +2,10 @@
 
 {% block content %}
 
-<h1 class="text-decoration-underline"> This is the Add to Inventory Page </h1>
-<h3> Import Note: All vehicles added to your inventory are automatically backed up to our reserve listing
-    which can be accessed by all users from our retrieve tab at the top of the page.
+<h1 class="text-decoration-underline"> This is the Update Inventory Listing Page </h1>
+<h3> Import Note: Updates will only be applied to your own inventory listing and will have no effect
+    on the reserve listings.
+    -If you wish to leave any part of the listings as it is, leave the corresponding form blank.
 </h3>
 <form action="" method="POST">
     {{ form.hidden_tag() }}
@@ -35,9 +36,11 @@
         </fieldset>
         <br>
         <fieldset>
-            {{form.submit(class='btn btn-primary')}}
+            {{form.submit(class='btn btn-dark')}}
         </fieldset>
-     
+    <br>
+    <br>
+    <br>
 </form>
 
 {% endblock content %}

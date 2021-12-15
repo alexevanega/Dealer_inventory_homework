@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
 class Inventory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String(300))
-    vin_num = db.Column(db.String(16), nullable=False, unique=True)
+    vin_num = db.Column(db.String(16), nullable=False, unique=False)
     year = db.Column(db.String(4), nullable=True, unique=False)
     make = db.Column(db.String(25), nullable=True, unique=False)
     model = db.Column(db.String(75), nullable=False, unique=False)
@@ -38,3 +38,20 @@ class Inventory(db.Model):
         self.model = model
         self.description = description
         self.user_id = user_id
+
+class Reserve(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.String(300))
+    vin_num = db.Column(db.String(16), nullable=False, unique=False)
+    year = db.Column(db.String(4), nullable=True, unique=False)
+    make = db.Column(db.String(25), nullable=True, unique=False)
+    model = db.Column(db.String(75), nullable=False, unique=False)
+    description = db.Column(db.String(300))
+
+    def __init__(self, image, vin_num, year, make, model, description):
+        self.image = image
+        self.vin_num = vin_num
+        self.year = year
+        self.make = make
+        self.model = model
+        self.description = description

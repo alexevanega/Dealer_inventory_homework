@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="instagram-rip-off">
+    <div class="card " style="width: 18rem;">
+        <img src="{{ v.image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{ v.year }} {{v.make}} {{v.model}}</h3>
+          <p class="card-text">{{ v.description }}</p>
+          <h5>vin - {{ v.vin_num }}</h5>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Import Listing To Your Inventory
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are You Sure?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to import this listing into your inventory?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="{{ url_for('inventory.retrieveReserveListing', id=v.id) }}" method="POST">
+                                <button type="submit" class="btn btn-warning">Import</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}

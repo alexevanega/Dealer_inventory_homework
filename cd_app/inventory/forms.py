@@ -11,3 +11,15 @@ class addToInventory(FlaskForm):
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField()
 
+class removeInventory(FlaskForm):
+    id = StringField('Item ID', validators=[DataRequired()])
+    submit = SubmitField()
+
+class updateListingForm(FlaskForm):
+    image= StringField('Image URL')
+    vin_num= StringField('Vin Number')
+    year = StringField('Year')
+    make = StringField('Make')
+    model = StringField('Model')
+    description = StringField('Description')
+    submit = SubmitField()

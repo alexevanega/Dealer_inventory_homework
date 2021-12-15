@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-decoration-underline"> This is the Remove From Inventory Page </h1>
+<br>
+<br>
+<br>
+<h3>Please enter the ID associated with the Item you want to remove:</h3>
+<h4>(Please note: Items removed have been stored in a reserve database. If the information is needed again</h4>
+<h4>you can access it through the "Retrieve Reserve Listing" page.)</h4>
+<br>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset>
+            {{ form.id.label }}
+            {{ form.id(class='form-control', placeholder='Please enter ID') }}
+        </fieldset>
+        <br>
+        <fieldset>
+            {{form.submit(class='btn btn-danger')}}
+        </fieldset>     
+</form>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="instagram-rip-off">
+    <div class="card " style="width: 18rem;">
+        <img src="{{ v.image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{ v.year }} {{v.make}} {{v.model}}</h3>
+          <p class="card-text">{{ v.description }}</p>
+          <h5>vin - {{ v.vin_num }}</h5> 
+          <a class='btn btn-dark' href='{{ url_for("inventory.updateListing", id=v.id) }}'>Update</a>
+        </div>
+      </div>
+</div>
+{% endblock content %}

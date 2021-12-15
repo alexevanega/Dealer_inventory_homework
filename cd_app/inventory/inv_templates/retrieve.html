@@ -1,8 +1,11 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
-<h1 class="text-decoration-underline">Dealership Inventory Table</h1>
+<h1 class="text-decoration-underline">Inventory Reserves Table</h1>
+<h3>This is a backup database in case of accidental deletions or importing vehicle information that
+    another User has added to the database.
+</h3>
 <br>
 <table class="table">
   <thead>
@@ -18,13 +21,12 @@
     </tr>
   </thead>
   <tbody>
-    {% for items in inventory %}
-    {% if items.user_id == current %}
+    {% for items in rr %}
     <tr>
       <td>{{items.id}}</td>
       <td>
-        <a href="{{ url_for('inventory.myVehiclePage', id=items.id) }}"><img src='{{items.image}}' class="img-fluid img-thumbnail w-50" alt="..."></a>
-      </td>
+          <a href="{{ url_for('inventory.vehicleListingPage', id=items.id) }}"><img src='{{items.image}}' class="img-fluid img-thumbnail w-50" alt="..."></a>
+    </td>
       <td>{{items.vin_num}}</td>
       <td>{{items.year}}</td>
       <td>{{items.make}}</td>
@@ -32,7 +34,6 @@
       <td>{{items.description}}</td>
       <td>{{items.date_added}}</td>
     </tr>
-    {% endif %}
     {% endfor %}
   </tbody>
 </table>
